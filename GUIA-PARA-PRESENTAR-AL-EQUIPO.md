@@ -20,6 +20,15 @@ en la raíz del proyecto con `claude` listo para usarse. El README del
 proyecto trae el paso manual de una sola vez para dejar las skills y el
 subagente en su lugar (`.claude/`).
 
+Si vas a mostrar la instalación real de un plugin (parte 3, versión larga),
+antes de la sesión corre esto una vez desde `G:\claude-project` para que el
+plugin ya esté instalado y solo tengas que hacer la demo en vivo:
+
+```bash
+claude plugin marketplace add ./notas-marketplace
+claude plugin install plugin-notas-kit@notas-marketplace
+```
+
 ---
 
 ## 1 — CLAUDE.md (~2 min)
@@ -43,15 +52,34 @@ que agregar una variable de template — varios archivos, un solo comando".
 (como agregar una variable de template) queda encapsulada una sola vez, para
 todo el equipo.
 
-## 3 — Plugins (~3 min)
+## 3 — Plugins (~3 min, ~7 min con la versión larga)
 
-**Qué mostrar:** `claude --plugin-dir ./plugin-notas-kit` y luego
-`/nuevo-componente NotaDestacada`. Explica que es la misma idea de skill,
-pero empaquetada para instalarse en otros proyectos.
+**Qué mostrar (versión corta):** `claude --plugin-dir ./plugin-notas-kit` y
+luego `/nuevo-componente NotaDestacada`. Explica que es la misma idea de
+skill, pero empaquetada para instalarse en otros proyectos.
+
+**Qué mostrar (versión larga, más convincente — recomendada si el tiempo
+alcanza):** la duda que le va a surgir a cualquiera del equipo en la versión
+corta es "¿pero de verdad se puede instalar, o nomás se ve así?". Para
+contestarla con hechos en vez de con la palabra: cambia a la terminal donde
+ya tienes `plugin-notas-kit` instalado (paso previo, arriba) y muestra
+`otra-app-demo` — un proyecto Preact genérico que **nunca vio los archivos
+originales del plugin**:
+
+```bash
+cd G:\claude-project\otra-app-demo
+claude
+```
+
+Y dentro, sin `--plugin-dir`: `/plugin-notas-kit:nuevo-componente ComponentePrueba`.
+Señala que aquí nadie copió ninguna carpeta a mano — el plugin llegó solo,
+a través del "catálogo" (`notas-marketplace`).
 
 **El pitch para SACS:** una skill que solo vive en un repo no escala —
 empaquetada en un plugin, se instala en los demás proyectos del equipo con
-un comando, sin copiar carpetas a mano.
+un comando, sin copiar carpetas a mano. Esto es lo que haría que una skill
+buena de un proyecto de SACS le sirviera a los demás sin que cada quien la
+tenga que reconstruir.
 
 ## 4 — MCP (~3 min)
 

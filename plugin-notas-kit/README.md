@@ -28,3 +28,28 @@ Y dentro de la sesión: `/nuevo-componente NotaDestacada`.
 Una skill que solo vive en un repo no escala. Empaquetada en un plugin, se
 instala en los demás proyectos del equipo con un solo comando, en vez de
 copiar carpetas a mano cada vez.
+
+## Instalación real (no solo `--plugin-dir`)
+
+`--plugin-dir` es modo desarrollo: solo funciona porque estás parado en este
+mismo repo, donde vive la carpeta del plugin. Para demostrar la instalación
+de verdad — la que usaría alguien más del equipo, sin acceso a estos
+archivos — hay dos carpetas hermanas de `preact-demo` dentro de
+`G:\claude-project`:
+
+- `notas-marketplace\` — un "catálogo" mínimo que apunta a este plugin.
+- `otra-app-demo\` — un segundo proyecto (Preact genérico, sin relación con
+  Notas) donde se instala el plugin desde el catálogo, no copiando archivos.
+
+Los pasos exactos están en `otra-app-demo\README.md`. En resumen:
+
+```bash
+cd G:\claude-project
+claude plugin marketplace add ./notas-marketplace
+claude plugin install plugin-notas-kit@notas-marketplace
+
+cd otra-app-demo
+claude
+```
+
+Y dentro de esa sesión, ya sin `--plugin-dir`: `/plugin-notas-kit:nuevo-componente ComponentePrueba`.
