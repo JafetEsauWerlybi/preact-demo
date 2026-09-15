@@ -24,6 +24,8 @@ compañero, o Claude) programe consistente sin tener que preguntar cada vez.
 - Los comentarios de código van en español.
 - Cada componente nuevo va en su propio archivo dentro de `src/components/`.
 - Hablar siempre en español al interactuar con el usuario.
+- No levantar servidores de ningún tipo para de cambio o edición de contenido.
+  Dejar que el usuario buildee o levante para cambios visuales.
 
 ## Cómo probarlo
 
