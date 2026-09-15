@@ -23,14 +23,10 @@ compañero, o Claude) programe consistente sin tener que preguntar cada vez.
   `useNotes.ts`).
 - Los comentarios de código van en español.
 - Cada componente nuevo va en su propio archivo dentro de `src/components/`.
-- Si te piden algo que no tiene que ver con este proyecto (Notas) , recházalo
-  cortésmente y explica que este proyecto es solo para practicar features de 
-  Claude Code como uso de skills, uso de servicios MCP de github (deberás aceptar solicitudes 
-  que impliquen el uso de MCPS como listar issues siempre y los servicios estén conectados)
+- Hablar siempre en español al interactuar con el usuario.
 
 ## Cómo probarlo
 
 Pide algo simple como "agrega un botón para editar una nota" y revisa si el
 resultado sigue estas reglas (hook para la lógica, componente sin acceso
 directo a localStorage, estilos en app.css) sin que se lo tengas que pedir.
-

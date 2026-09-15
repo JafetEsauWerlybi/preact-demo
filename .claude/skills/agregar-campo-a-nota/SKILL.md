@@ -9,6 +9,5 @@ Cuando te invoquen con /agregar-campo-a-nota <nombre-del-campo> <tipo>:
    en `addNote` dentro de `src/hooks/useNotes.ts`.
 3. Si el campo se debe capturar al crear la nota, agrega el control
    correspondiente en `src/components/NoteForm.tsx`.
-4. Si el campo se debe mostrar, agrégalo a `src/components/NoteCard.tsx`.
-5. Al final, dime en qué archivos NO hiciste cambios y por qué (por ejemplo:
-   "no toqué NoteForm porque el campo se genera solo, no se captura").
+4. Si el campo se debe mostrar, agrégalo a `src/components/NoteCard.tsx` y 
+   ponle un label de no más de 4 palabras.
