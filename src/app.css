@@ -70,6 +70,16 @@
   outline-offset: 2px;
 }
 
+.note-form__priority {
+  align-self: flex-start;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
 .note-list {
   display: grid;
   gap: 12px;
@@ -142,4 +152,27 @@
 .note-card__date {
   font-size: 12px;
   color: var(--ink-soft);
+}
+
+.note-card__priority {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.note-card__priority--1 {
+  background: var(--line);
+  color: var(--ink-soft);
+}
+
+.note-card__priority--2 {
+  background: #fff3cd;
+  color: #8a6d00;
+}
+
+.note-card__priority--3 {
+  background: var(--red-soft);
+  color: var(--red);
 }

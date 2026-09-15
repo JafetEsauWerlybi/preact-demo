@@ -5,6 +5,12 @@ interface NoteCardProps {
   onDelete: (id: string) => void;
 }
 
+const PRIORITY_LABEL: Record<Note['priority'], string> = {
+  1: 'Baja',
+  2: 'Media',
+  3: 'Alta',
+};
+
 export function NoteCard({ note, onDelete }: NoteCardProps) {
   const date = new Date(note.createdAt).toLocaleDateString('es-MX', {
     day: 'numeric',
@@ -16,6 +22,9 @@ export function NoteCard({ note, onDelete }: NoteCardProps) {
     <article class="note-card">
       <header class="note-card__header">
         <h3 class="note-card__title">{note.title}</h3>
+        <span class={`note-card__priority note-card__priority--${note.priority}`}>
+          {PRIORITY_LABEL[note.priority]}
+        </span>
         <button
           type="button"
           class="note-card__delete"

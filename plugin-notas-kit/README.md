@@ -10,8 +10,14 @@ Cuando quede claro, sigan con el paso 4 (MCP).
 
 ---
 
-Empaqueta la skill `/nuevo-componente` (crea un componente nuevo de Preact
-siguiendo las convenciones de `CLAUDE.md`) de forma instalable.
+Empaqueta dos skills instalables:
+
+- `/nuevo-componente` — crea un componente nuevo de Preact siguiendo las
+  convenciones de `CLAUDE.md`.
+- `/revisar-componente` — audita un componente ya existente (ortografía,
+  clases CSS, PascalCase, orden de etiqueta/campo) sin modificar nada. Es la
+  que mejor sirve para comprobar qué tan "generales" son las reglas de una
+  skill cuando viaja a otro proyecto — ver la nota al final de este archivo.
 
 ## Cómo probarlo
 
@@ -21,7 +27,8 @@ Desde la raíz del proyecto:
 claude --plugin-dir ./plugin-notas-kit
 ```
 
-Y dentro de la sesión: `/nuevo-componente NotaDestacada`.
+Y dentro de la sesión: `/nuevo-componente NotaDestacada` o
+`/revisar-componente NoteCard`.
 
 ## Por qué le conviene a un equipo real
 
@@ -53,3 +60,18 @@ claude
 ```
 
 Y dentro de esa sesión, ya sin `--plugin-dir`: `/plugin-notas-kit:nuevo-componente ComponentePrueba`.
+
+## Por qué `/revisar-componente` es un buen ejemplo de "generalidad"
+
+`/revisar-componente` no menciona ninguna carpeta ni servicio específico de
+Notas — solo pide "el archivo del componente" y revisa cosas universales
+(ortografía, PascalCase, orden de etiquetas). Por eso se comporta igual sin
+importar el proyecto donde se instale.
+
+Compárala con `/nuevo-componente`, que sí trae una suposición concreta ("si
+necesita datos persistentes, usa un hook existente en `src/hooks/`") — esa
+suposición es válida en `preact-demo` (existe `useNotes.ts`), pero no en
+`otra-app-demo` (no hay ningún hook), así que ahí Claude tiene que improvisar
+esa parte. Correr las dos skills, una tras otra, en los dos proyectos es la
+forma más clara de mostrarle al equipo por qué conviene pensar el nivel de
+generalidad de una skill antes de empaquetarla como plugin.

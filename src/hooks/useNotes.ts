@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
-import type { Note } from '../types';
+import type { Note, NotePriority } from '../types';
 
 const STORAGE_KEY = 'notas-app:notes';
 
@@ -31,12 +31,13 @@ export function useNotes() {
     }
   }, [notes]);
 
-  function addNote(title: string, content: string) {
+  function addNote(title: string, content: string, priority: NotePriority = 2) {
     const note: Note = {
       id: crypto.randomUUID(),
       title: title.trim() || 'Sin título',
       content: content.trim(),
       createdAt: Date.now(),
+      priority,
     };
     setNotes((prev) => [note, ...prev]);
   }
