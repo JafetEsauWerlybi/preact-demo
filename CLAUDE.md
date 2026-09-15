@@ -27,6 +27,24 @@ compañero, o Claude) programe consistente sin tener que preguntar cada vez.
 - No levantar servidores de ningún tipo para de cambio o edición de contenido.
   Dejar que el usuario buildee o levante para cambios visuales.
 
+## Flujo obligatorio de trabajo
+
+Al pedir "revisa/lista los issues", SOLO lístalos. No implementes nada
+todavía, aunque parezca obvio qué hacer.
+
+Para resolver un issue, espera instrucciones explícitas paso a paso, por
+ejemplo:
+1. Usar el agente `revisor-de-componentes` para auditar el componente
+   relacionado contra las convenciones.
+2. Usar el skill/plugin correspondiente (`nuevo-componente`,
+   `agregar-campo-a-nota`, etc.) para generar el cambio.
+3. Editar manualmente para integrarlo a la vista principal.
+4. Volver a correr `revisor-de-componentes` sobre el resultado.
+5. Usar la skill `anunciar-fix-en-slack` para avisar del cambio.
+
+Nunca saltes directo del paso "listar issues" a escribir código sin que el
+usuario indique el paso siguiente.
+
 ## Cómo probarlo
 
 Pide algo simple como "agrega un botón para editar una nota" y revisa si el
