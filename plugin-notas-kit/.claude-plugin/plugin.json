@@ -1,5 +1,0 @@
-{
-  "name": "plugin-notas-kit",
-  "version": "1.0.0",
-  "description": "Empaqueta la skill de este proyecto para instalarla en otros repos con el mismo stack (Preact + Vite + TypeScript)"
-}
